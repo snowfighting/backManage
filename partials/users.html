@@ -1,0 +1,63 @@
+<header class="server1-header" ng-controller="commonController">
+  <a href="#">当前位置</a>
+  <span>&gt;&gt;</span>
+  <a href="#">{{meName}}</a>
+  <span>&gt;&gt;</span>
+  <a href="#">{{meSub}}</a>
+</header>
+
+<div class="scrollPage"  ng-controller="diController">
+  <form class="form-inline" role="form">
+    <div class="input-group">
+      <div class="input-group-addon">姓名</div>
+      <input class="form-control" type="text" ng-model="name">
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon">部门</div>
+        <select ng-model="cRegion" class="form-control">
+          <option>请选择</option>
+          <option>技术部</option>
+          <option>财务部</option>
+          <option>营销部</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" ng-click="queryU()">查询</button>
+  </form>
+
+  <table class="table table-hover">
+    <tr>
+      <th>姓名</th>
+      <th>手机</th>
+      <th>部门</th>
+      <th>操作</th>
+    </tr>
+    <tr ng-repeat="u in users | filter: qname">
+      <td>{{u.name}}</td>
+      <td>{{u.tel}}</td>
+      <td>{{u.dart}}</td>
+      <td ng-click="deleteU(u)">删除</td>
+    </tr>
+  </table>
+
+  <div ng-show="isShow" class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">提交提示</h4>
+        </div>
+        <div class="modal-body">
+          <h3>您确定提交快递申请吗？</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" ng-click="submitK()">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,172 @@
+  <header class="server1-header"  ng-controller="commonController">
+    <a href="#">当前位置</a>
+    <span>&gt;&gt;</span>
+    <a href="#">{{meName}}</a>
+    <span>&gt;&gt;</span>
+    <a href="#">{{meSub}}</a>
+  </header>
+
+  <div ng-controller="server1Controller"  class="scrollPage">
+  <div class="container inList">
+    <div class="row">
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">开始时间：</label>
+            <div class="col-sm-7">
+              <input type="date" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">结束时间：</label>
+            <div class="col-sm-7">
+              <input type="date" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">收件人：</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">代填人：</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">快递单号：</label>
+            <div class="col-sm-7">
+              <input ng-model = "cID" type="text" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">申请单号：</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="inputEmail3" placeholder="">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">国&nbsp;&nbsp;&nbsp;际：</label>
+            <div class="col-sm-7">
+              <select class="form-control">
+                <option>请选择</option>
+                <option>美国</option>
+                <option>加拿大</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">国&nbsp;&nbsp;&nbsp;内：</label>
+            <div class="col-sm-7">
+              <select class="form-control">
+                <option>请选择</option>
+                <option>北京</option>
+                <option>上海</option>
+                <option>山东</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">快递状态：</label>
+            <div class="col-sm-7">
+              <select class="form-control">
+                <option>请选择</option>
+                <option>待审批</option>
+                <option>已审批</option>
+                <option>已发送</option>
+                <option>待修改</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="col-sm-5 control-label">快递类型：</label>
+            <div class="col-sm-7">
+              <select class="form-control">
+                <option>请选择</option>
+                <option>文件</option>
+                <option>物品</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3 chekcol">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox1" value="option1"> 隐藏
+        </label>
+        <label class="checkbox-inline chkright">
+          <input type="checkbox" id="inlineCheckbox2" value="option2"> 代填
+        </label>
+      </div>
+      <div class="col-md-3">
+        <button ng-click = "queryC()" type="button" class="btn btn-success">查询</button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <table class="table table-hover" id="tabC">
+    <tr>
+      <th>快递单号</th>
+      <th>快递区域</th>
+      <th>快递类型</th>
+      <th>收件人姓名</th>
+      <th>代填人</th>
+      <th>快递状态</th>
+      <th>操作</th>
+    </tr>
+    <tr ng-repeat="c in cours | filter: searchId ">
+      <td>{{c.ckuaID}}</td>
+      <td>{{c.cRegion}}</td>
+      <td>{{c.cClass}}</td>
+      <td>{{c.cName}}</td>
+      <td>b</td>
+      <td>待审批</td>
+      <td ng-click="deleteC(c)">删除</td>
+    </tr>
+  </table>
+
+</div>

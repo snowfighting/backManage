@@ -1,0 +1,60 @@
+<div>
+  <header>
+    <h1>快递服务申请系统</h1>
+    <div class="admin">
+      您好，<span>admin</span>
+      <a href="#">注销</a>
+    </div>
+  </header>
+  <div class="container-fluid index-wrap" ng-controller="outerController">
+    <div class="row">
+      <div class="col-md-2 index-menu">
+        <span class="menu-title">菜单</span>
+        <div class="panel-group" id="accordion">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="icon-left iconi1"></i>{{menukey[0]}}<i class="icon-right"></i></a></h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+              <ul class="panel-body">
+                <li ng-repeat="m in menuList[menukey[0]]"><a ui-sref="{{m.url}}({meName: menukey[0],meSub: m.name})"><i class="service-icon"></i>{{m.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="icon-left iconi2"></i>{{menukey[1]}}<i class="icon-right"></i></a></h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+              <div class="panel-body"><a ng-repeat="m in menuList[menukey[1]]" ui-sref="{{m.url}}({meName: menukey[1],meSub: m.name})"><i class="service-icon"></i>{{m.name}}</a></div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse"data-parent="#accordion"href="#collapseThree"><i class="icon-left iconi3"></i>{{menukey[2]}}<i class="icon-right"></i></a></h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+              <div class="panel-body"><a ng-repeat="m in menuList[menukey[2]]" ui-sref="{{m.url}}({meName: menukey[2],meSub: m.name})"><i class="service-icon"></i>{{m.name}}</a></div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title"><a data-toggle="collapse"data-parent="#accordion"href="#collapseFour"><i class="icon-left iconi4"></i>{{menukey[3]}}<i class="icon-right"></i></a></h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+              <div class="panel-body"><a ng-repeat="m in menuList[menukey[3]]" ui-sref="{{m.url}}({meName: menukey[3],meSub: m.name})"><i class="service-icon"></i>{{m.name}}</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-10 viewPage">
+        <ui-view></ui-view>
+      </div>
+    </div>
+  </div>
+  <footer class="index-footer">
+    &copy; 2016 - 快递服务申请系统
+  </footer>
+</div>

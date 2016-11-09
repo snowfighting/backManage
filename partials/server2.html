@@ -1,0 +1,185 @@
+<header class="server1-header" ng-controller="commonController">
+  <a href="#">当前位置</a>
+  <span>&gt;&gt;</span>
+  <a href="#">{{meName}}</a>
+  <span>&gt;&gt;</span>
+  <a href="#">{{meSub}}</a>
+</header>
+
+<div class="scrollPage" ng-controller="server2Controller">
+  <table class="table table-bordered table-condensed">
+    <tr>
+      <th colspan="3">申请人信息</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">申请人：</div>
+            <input ng-model="cshenName" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">部门：</div>
+            <input ng-model="cdart" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">手机：</div>
+            <input ng-model="cshenTel" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">收件人信息</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">收件人：</div>
+            <input ng-model="cName" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+      <td colspan="2">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">手机：</div>
+            <input ng-model="cTel" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">快递信息</th>
+    </tr>
+    <tr>
+      <td>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="txtLeft col-sm-5 control-label">快递区域：</label>
+            <div class="col-sm-7">
+              <select ng-model="cRegion" class="form-control">
+                <option>请选择</option>
+                <option>国内</option>
+                <option>国外</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </td>
+      <td>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="txtLeft col-sm-5 control-label">快递类型：</label>
+            <div class="col-sm-7">
+              <select ng-model="cClass" class="form-control">
+                <option>请选择</option>
+                <option>文件</option>
+                <option>其他</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </td>
+      <td>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="inputEmail3" class="txtLeft col-sm-5 control-label">快递公司：</label>
+            <div class="col-sm-7">
+              <select ng-model="cCompany" class="form-control">
+                <option>请选择</option>
+                <option>EMS</option>
+                <option>顺丰</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">邮编：</div>
+            <input ng-model="cCode" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+      <td colspan="2">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">邮寄地址：</div>
+            <input ng-model="caddress" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">快递单号：</div>
+            <input ng-model="ckuaID" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+      <td colspan="2">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">申请单号：</div>
+            <input ng-model="cshenID" class="form-control" type="text">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">申请说明</th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <textarea ng-model="cExplain" class="form-control" rows="2"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="3">备注</th>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <textarea ng-model="cMark" class="form-control" rows="2"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <button data-toggle="modal" data-target="#myModal" ng-click="showM()" type="button" class="btn btn-success">提交</button>
+      </td>
+    </tr>
+  </table>
+
+  <div ng-show="isShow" class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">提交提示</h4>
+        </div>
+        <div class="modal-body">
+          <h3>您确定提交快递申请吗？</h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" ng-click="submitK()">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
